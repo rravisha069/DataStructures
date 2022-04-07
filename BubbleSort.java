@@ -1,23 +1,21 @@
 public class BubbleSort {
   public int[] doBubbleSort(int[] nums) {
-    int[] n={};
-    for(int i=0;i<nums.length;i++){
-      boolean isSorted;
-      for(int j=1;j<nums.length - i; j++){
-        isSorted = true;
-        int k = j-1;
-        if(nums[j]<nums[k]){
-          int temp;
-          temp = nums[k];
-          nums[k]=nums[j];
-          nums[j]=temp;
-          isSorted = false;
+    int arr[] = {1,2,3,4,5};
+	    
+    boolean doSort = true; //optimization
+    for(int i=0; i<arr.length && doSort; i++) {
+        doSort = false;
+        for (int j=1; j<arr.length; j++) {
+            int k = j-1;
+            if(arr[k] > arr[j]) {
+                int temp = arr[j];
+                arr[j] = arr[k];
+                arr[k] = temp;
+                doSort = true;
+            }
         }
-        if(isSorted == true) {
-          n = nums;
-        }
-      }
     }
-    return n;
+
+    return arr;
   }
 }
